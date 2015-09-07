@@ -2,3 +2,5 @@
 target/
 gen/
 bin/
+.gradle/
+app/build/
