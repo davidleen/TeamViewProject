@@ -16,8 +16,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 
-         RecyclerView recyclerView;
-        FragmentActivity fragmentActivity;
+
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 

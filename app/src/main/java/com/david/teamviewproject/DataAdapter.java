@@ -10,7 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 
 public class DataAdapter extends Observable {
 
-	private List<TeamData> lists;
+	private List<com.david.teamviewproject.TeamData> lists;
 	private Context context;
 
 	public DataAdapter(Context context, List<TeamData> lists) {

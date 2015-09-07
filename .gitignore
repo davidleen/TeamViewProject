@@ -4,3 +4,5 @@ gen/
 bin/
 .gradle/
 app/build/
+build/
+app/app.iml

@@ -38,7 +38,7 @@ public class TeamView extends View {
 
 	private Bitmap[] bm_TaskNum = new Bitmap[MAX_PLANET];
 
-	private DataAdapter mDataAdapter;
+	private com.david.teamviewproject.DataAdapter mDataAdapter;
 
 	// private long lastDrawTime = getDrawingTime();
 	// 开启动画path
@@ -74,7 +74,7 @@ public class TeamView extends View {
 
 	private int mWidth = 0;
 	private int mHeight = 0;
-	private Custom_Oval oval;
+	private com.david.teamviewproject.Custom_Oval oval;
 	private int radii_user_head;
 	// adapter 数据大小
 	private int size;
@@ -139,9 +139,8 @@ public class TeamView extends View {
 
 		}
 		tv.destroyDrawingCache();
-		tv = null;
 
-		oval = new Custom_Oval();
+		oval = new com.david.teamviewproject.Custom_Oval();
 
 	}
 
@@ -217,7 +216,7 @@ public class TeamView extends View {
 				// translate to user head edge
 				float x_task_num = (float) (radii_user_head * Math.cos((currentDegree + 180 + 30) * Custom_Oval.TO_RADIANS));
 				float y_task_num = (float) (radii_user_head * Math.sin((currentDegree + 180 + 30) * Custom_Oval.TO_RADIANS));
-				canvas.translate((float) x_task_num, (float) y_task_num);
+				canvas.translate( x_task_num,  y_task_num);
 
 				canvas.clipPath(mPath_TaskNum_Circle);
 				canvas.drawBitmap(bm_TaskNum[taskNumber > 9 ? 9 : taskNumber - 1], null, rect_TaskNum_Circle, null);
@@ -474,160 +473,6 @@ public class TeamView extends View {
 
 	}
 
-	// private class MainPersonDrawable extends IDrawable {
-	//
-	// PersonData data;
-	//
-	// public MainPersonDrawable() {
-	//
-	// }
-	//
-	// @Override
-	// public void onDraw(Canvas canvs) {
-	// // TODO Auto-generated method stub
-	//
-	// }
-	//
-	// }
-	//
-	// private class PersonDrawable extends IDrawable {
-	//
-	// boolean needDrawableLineToChild;
-	// int relateTaskNum;
-	//
-	// PersonData data;
-	//
-	// public PersonDrawable(PersonData data) {
-	// this.data = data;
-	//
-	// }
-	//
-	// @Override
-	// public void onDraw(Canvas canvas) {
-	// // TODO Auto-generated method stub
-	//
-	// if (parent != null) {
-	// mPaint.setAntiAlias(true);
-	// mPaint.setStyle(Style.STROKE);
-	// mPaint.setColor(Color.GREEN);
-	// int lineWidth = data.relateTaskNum;
-	// if (lineWidth > 12) {
-	// lineWidth = 12;
-	// } else if (lineWidth < 4) {
-	// lineWidth = 4;
-	// }
-	//
-	// mPaint.setStrokeWidth(lineWidth / 2);
-	// if (relateTaskNum == 0) {
-	// mPaint.setAlpha(128);
-	// } else
-	// mPaint.setAlpha(256);
-	//
-	// canvas.drawLine(-center.x, center.y, 0, 0, mPaint);
-	//
-	// }
-	//
-	// // draw child if exist
-	// int childSize = childDrawable == null ? 0 : childDrawable.size();
-	// for (int i = 0; i < childSize; i++) {
-	// IDrawable child = childDrawable.get(i);
-	//
-	// canvas.save();
-	// canvas.translate(child.center.x, child.center.y);
-	//
-	// child.onDraw(canvas);
-	//
-	// canvas.restore();
-	//
-	// }
-	//
-	// // drawSelf
-	// // draw user_head
-	// Path mPath = new Path();
-	// mPath.addCircle(0, 0, userHeadWidth / 2, Direction.CCW);
-	// canvas.save();
-	// canvas.clipPath(mPath);
-	// canvas.drawColor(Color.GREEN);
-	// canvas.drawBitmap(data.head, null, getRect(), null);
-	// canvas.restore();
-	//
-	// }
-	//
-	// }
-	//
-	// private class TaskNum extends IDrawable {
-	//
-	// @Override
-	// public void onDraw(Canvas canvs) {
-	// // TODO Auto-generated method stub
-	//
-	// }
-	//
-	// }
-	//
-	// public abstract class IDrawable {
-	//
-	// Position center;
-	// int width;
-	// int height;
-	// Rect rect = new Rect();
-	// IDrawable parent;
-	// List<IDrawable> childDrawable;
-	//
-	// public abstract void onDraw(Canvas canvs);
-	//
-	// public Position getGlobalPosition() {
-	// Position globalPosition;
-	// if (parent != null) {
-	// globalPosition = parent.getGlobalPosition();
-	// globalPosition.x += center.x;
-	// globalPosition.y += center.y;
-	// } else {
-	// globalPosition = new Position();
-	// globalPosition.x = center.x;
-	// globalPosition.y = center.y;
-	// }
-	// return globalPosition;
-	// }
-	//
-	// public Rect getRect() {
-	// rect.left = center.x - width / 2;
-	// rect.right = center.x + width / 2;
-	//
-	// rect.bottom = center.y + height / 2;
-	// rect.top = center.y - height / 2;
-	// return rect;
-	// }
-	//
-	// public boolean isInRange(Position globalPosition) {
-	//
-	// Position thisPosition = getGlobalPosition();
-	//
-	// Rect rect = new Rect(thisPosition.x - width / 2, thisPosition.y
-	// - height / 2, thisPosition.x + width / 2, thisPosition.y
-	// + height / 2);
-	// return rect.contains(globalPosition.x, globalPosition.y);
-	// }
-	//
-	// /**
-	// * 旋转 角度 更新 xy
-	// *
-	// * @param degree
-	// */
-	// public void rotate(float degree) {
-	// double radians = Math.toRadians(degree);
-	// center.x = (int) (center.x * Math.cos(radians) - center.y
-	// * Math.sin(radians));
-	// center.y = (int) (center.x * Math.sin(radians) + center.y
-	// * Math.cos(radians));
-	// }
-	// }
-	//
-	// class Position {
-	// int x;
-	// int y;
-	// }
-	//
 
 	/**
 	 * 配置线段的属性 根据任务关联数据确定线条粗细 透明度
@@ -649,13 +494,7 @@ public class TeamView extends View {
 
 	}
 
-	//
-	// public static class PersonData {
-	//
-	// public Bitmap head;
-	// public int relateTaskNum;
-	// public Object data;
-	// }
+
 
 	// 绿色圆环画笔
 
