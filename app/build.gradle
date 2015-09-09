@@ -20,9 +20,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 }
+repositories {
+
+}
 
 dependencies {
 
 
+        compile "com.davidleen29.mylibrary:mylibrary:0.1"
 
 }
